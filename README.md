@@ -78,12 +78,12 @@ It should start as a quiet, useful, versioned memory and coordination layer for 
 
 ## Roadmap snapshot
 
-| Version | Focus |
-|---|---|
-| 0.2 | Basic useful team memory |
-| 0.3 | Personal interaction and lightweight files |
-| 0.4 | Richer file and artifact support |
-| 1.0 | More autonomous AI teammate |
+| Version | Focus                                      |
+| ------- | ------------------------------------------ |
+| 0.2     | Basic useful team memory                   |
+| 0.3     | Personal interaction and lightweight files |
+| 0.4     | Richer file and artifact support           |
+| 1.0     | More autonomous AI teammate                |
 
 See [SPEC.md](./SPEC.md) for the detailed roadmap.
 
@@ -92,3 +92,24 @@ See [SPEC.md](./SPEC.md) for the detailed roadmap.
 Johnny succeeds if the team feels more aligned, less forgetful, and less overloaded.
 
 The best version of Johnny is not the loudest or smartest possible agent. It is the teammate that quietly helps the team keep its promises.
+
+## Running Johnny v0.2 (Hello World)
+
+The first working slice: a Telegram bot that lives in the team group, stays silent by
+default, and replies only when tagged (`@yourbot`) or replied-to. Its behavior comes from
+`memory/johnny.md` (system prompt) and `memory/project.md` (context) — edit those in
+GitHub to change how Johnny acts, no code change needed.
+
+```bash
+# 1. Create a bot with BotFather (https://t.me/BotFather), add it to your group.
+#    Leave group privacy ON (default) — the bot still receives @mentions of itself
+#    and replies to its messages, which is all Johnny reacts to.
+# 2. Configure secrets
+cp .env.example .env      # then fill in TELEGRAM_BOT_TOKEN and ANTHROPIC_API_KEY
+# 3. Install and run
+pip install -r requirements.txt
+python bot.py
+```
+
+`memory/` holds the versioned markdown boards: `tasks.md`, `guests.md`, `topics.md`.
+For v0.2 these are read/edited by hand in GitHub; automated queue management comes later.
