@@ -21,7 +21,7 @@ try:
     load_dotenv()  # load TELEGRAM_BOT_TOKEN / ANTHROPIC_API_KEY from a local .env
 except ImportError:
     pass
-from telegram.constants import ChatAction
+from telegram.constants import ChatAction, ChatType
 from telegram.ext import Application, ContextTypes, MessageHandler, filters
 
 logging.basicConfig(
@@ -44,7 +44,7 @@ claude = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment
 def build_system_prompt() -> str:
     """Assemble Johnny's system prompt from the versioned memory files."""
     parts = []
-    for name in ("johnny.md", "project.md"):
+    for name in ("johnny.md", "project.md", "tasks.md"):
         path = MEMORY_DIR / name
         if path.exists():
             parts.append(f"# From memory/{name}\n\n{path.read_text(encoding='utf-8')}")
@@ -70,8 +70,12 @@ def is_directed_at_johnny(update: Update, bot_username: str) -> bool:
 
 async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     bot_username = context.bot.username
-    if not is_directed_at_johnny(update, bot_username):
-        return  # stay silent by default
+    chat = update.effective_chat
+    is_private = chat is not None and chat.type == ChatType.PRIVATE
+    # In a 1:1 chat there's no group noise to protect, so answer every message.
+    # In groups, stay silent unless tagged or replied to.
+    if not is_private and not is_directed_at_johnny(update, bot_username):
+        return
 
     user = update.effective_user
     if ALLOWED_USER_IDS and (user is None or user.id not in ALLOWED_USER_IDS):
