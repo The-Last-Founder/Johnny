@@ -111,5 +111,6 @@ pip install -r requirements.txt
 python bot.py
 ```
 
-`memory/` holds the versioned markdown boards: `tasks.md`, `guests.md`, `topics.md`.
+`memory/` holds generic versioned boards: `tasks.md`.
+`podcast/` holds podcast-specific boards: `guests.md`, `topics.md`.
 For v0.2 these are read/edited by hand in GitHub; automated queue management comes later.

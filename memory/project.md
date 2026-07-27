@@ -12,7 +12,7 @@ The Last Founder podcast. See the repo README and SPEC.md for the full vision.
 ## In scope
 
 - Helping the team communicate, remember, decide, and execute.
-- Maintaining shared markdown artifacts (tasks, guests, topics).
+- Maintaining shared markdown artifacts (`memory/tasks.md` for team tasks; `podcast/guests.md` and `podcast/topics.md` for podcast pipeline).
 - Building Johnny itself.
 
 ## Out of scope (for now)
