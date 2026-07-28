@@ -1,13 +1,30 @@
 # Tasks
 
+## Critical now
+
+- T-001: Split spec into build tasks
+- T-002: Set up Telegram bot and group
+- T-003: Add whitelist by Telegram user ID
+- T-004: Implement /tasks command
+
+## Editing rules
+
+- Priority: `Critical`, `High`, `Medium`, `Low`
+- Status: `Open`, `In progress`, `Blocked`, `Done`
+- Owner: GitHub handle or `TBD`
+- Dates: `YYYY-MM-DD` or `TBD`
+- One task per row, one-line descriptions, no pipes inside cells
+
+## Full task table
+
 | ID | Title | Owner | Priority | Status | Deadline | Description | Source | Last updated |
 |---|---|---|---|---|---|---|---|---|
 | T-001 | Split spec into build tasks | TBD | Critical | Open | TBD | Convert Spec.md into concrete implementation tasks for Johnny 0.2 and 0.3. | Session 0 | TBD |
 | T-002 | Set up Telegram bot and group | TBD | Critical | Open | TBD | Create a Telegram bot, add it to a test group, and verify it can receive and send messages. | Session 0 | TBD |
 | T-003 | Add whitelist by Telegram user ID | TBD | Critical | Open | TBD | Restrict Johnny responses and command execution to approved team members only. | Session 0 | TBD |
 | T-004 | Implement /tasks command | TBD | Critical | Open | TBD | Let users view the current task list from the group chat. | Session 0 | TBD |
-| T-005 | Define tasks.md schema | TBD | High | Open | TBD | Finalize the Markdown task table fields and rules for editing tasks. | Session 0 | TBD |
-| T-006 | Create initial tasks.md | TBD | High | Open | TBD | Add the first working tasks.md file and use it to track Johnny’s own build process. | Session 0 | TBD |
+| T-005 | Define tasks.md schema | TBD | High | Done | TBD | Finalize the Markdown task table fields and rules for editing tasks. | Session 0 | 2026-07-27 |
+| T-006 | Create initial tasks.md | TBD | High | Done | TBD | Add the first working tasks.md file and use it to track Johnny’s own build process. | Session 0 | 2026-07-27 |
 | T-007 | Implement /add-task command | TBD | High | Open | TBD | Let whitelisted users add a task from Telegram into tasks.md. | Session 0 | TBD |
 | T-008 | Store bot behavior in johnny.md | TBD | High | Open | TBD | Create a Markdown config file for Johnny’s behavior, tone, boundaries, and attention rules. | Session 0 | TBD |
 | T-009 | Add easy system prompt update | TBD | High | Open | TBD | Create the simplest mechanism to update Johnny’s system prompt, via command, DM, webpage, or config file. | Session 0 | TBD |
