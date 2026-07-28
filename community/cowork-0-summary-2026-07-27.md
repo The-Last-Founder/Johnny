@@ -1,4 +1,4 @@
-# Johnny co-work summary, 27 July 2026
+# Johnny Cowork 0 summary, 27 July 2026
 
 Today we moved Johnny from a spec toward a working first prototype:
 
